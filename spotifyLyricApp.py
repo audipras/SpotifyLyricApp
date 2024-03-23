@@ -284,7 +284,7 @@ def tkinterStart():
             if isPlaying:
                 currTime = playbackState["progress_ms"] / 1000
 
-            while currTime > lyrics[index][0] and index < len(lyrics):
+            while index < len(lyrics) and currTime > lyrics[index][0]:
                 index += 1
 
             if index != 0 and index != len(lyrics) - 1:
