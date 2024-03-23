@@ -14,6 +14,7 @@ from urllib.parse import urlparse, parse_qs
 import tkinter as tk
 from webbrowser import *
 import tkinter.font as tkFont
+from dotenv import load_dotenv
 
 # global params
 code = ""
@@ -25,6 +26,9 @@ needsReset = False
 hasResetted = True
 lastClickX = 0
 lastClickY = 0
+
+# load dotenv
+load_dotenv()
 
 # whole o auth process
 # returns Access Token
@@ -46,7 +50,7 @@ def authProcess():
     hashed = hashlib.sha256(codeVerifier.encode()).digest()
     codeChallenge = base64encode(hashed)
 
-    clientId = os.getenv(clientId)
+    clientId = os.getenv('clientId')
     redirectUri = 'http://localhost:8080'
     scope = 'user-read-currently-playing user-read-playback-state' 
 
