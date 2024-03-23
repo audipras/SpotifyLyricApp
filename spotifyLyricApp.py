@@ -179,6 +179,7 @@ def splitLyrics(lyrics):
     lst = map(lambda a : a.split(" ", 1), lst)
     lst = [[sublist[0][1:-1], sublist[1]] for sublist in list(lst)]
     lst = [[(int(sublist[0].split(':')[0]) * 60) + float(sublist[0].split(':')[1]), sublist[1]] for sublist in list(lst)]
+    print(lst)
     return lst
 
 # full function for thread
@@ -287,7 +288,7 @@ def tkinterStart():
             while index < len(lyrics) and currTime > lyrics[index][0]:
                 index += 1
 
-            if index != 0 and index != len(lyrics) - 1:
+            if index != 0:
                 index -= 1
 
             displayLyrics = lyrics[index][1]
